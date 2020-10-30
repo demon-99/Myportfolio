@@ -1,0 +1,393 @@
+{% load static %}
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{% block title %}{% endblock title %}</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat');
+        *, *::before,*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+dl, ol, ul {
+    margin-top: 0;
+     margin-bottom: 0rem;
+}
+html,body {
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+  width:100%;
+  height: auto;
+  color:#eee;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.main-header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    width: 100vw;
+    padding: 0 10vw;
+    color: #000;
+    z-index: 2;
+    transition: .4s ease-out;
+}
+.main-header a {
+    text-decoration: none;
+    color: inherit;
+    text-transform: uppercase;
+}
+.main-header .nav-links {
+    display: flex;
+    list-style: none;
+}
+.main-header .nav-links .nav-link{
+    transition:
+      opacity .4s ease-in-out,
+      transform .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.main-header .nav-links .nav-link:nth-of-type(2){
+    transition-delay: .1s;
+}
+.main-header .nav-links .nav-link:nth-of-type(3){
+    transition-delay: .2s;
+}
+.main-header .nav-links .nav-link:nth-of-type(4){
+    transition-delay: .3s;
+}
+.main-header .nav-links .nav-link a {
+    margin: 0.2rem;
+    padding: 1rem 0.5rem;
+}
+.main-header .nav-links .nav-link a:hover {
+    background: rgba(255,255,255,0.2);
+
+}
+.main-header .menu-icon {
+    position: relative;
+    padding: 26px 10px;
+    cursor: pointer;
+    z-index: 1;
+    display: none;
+}
+.main-header .menu-icon .menu-icon__line{
+    display: block;
+    position: relative;
+    background: #000;
+    height: 2px;
+    width: 20px;
+    border-radius: 4px;
+}
+.main-header .menu-icon .menu-icon__line::before, .main-header .menu-icon .menu-icon__line::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    background: #000;
+    transition: background .8sec ease;
+}
+.main-header .menu-icon .menu-icon__line::before{
+    transform: translateY(-5px);
+}
+.main-header .menu-icon .menu-icon__line::after{
+    transform: translateY(5px);
+}
+.main-header .menu-btn{
+    position: absolute;
+    top: -100px;
+}
+.main-header .menu-btn:focus ~ .menu-icon .menu-icon__line::before{
+    transform: translateY(-7px);
+}
+.main-header .menu-btn:focus ~ .menu-icon .menu-icon__line::after{
+    transform: translateY(7px);
+}
+.main-header.scrolled{
+    height: 50px;
+    background: rgba(0,0,0,0.9);
+    color:#fff;
+
+}
+.main-header.scrolled .menu-icon .menu-icon__line, .main-header.scrolled .menu-icon .menu-icon__line::before, .main-header.scrolled .menu-icon .menu-icon__line::after{
+    background: #fff;
+}
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 0 0px rgba(255,255,255,0.6);
+        background: rgba(255,255,255,0.6);
+    }
+    to {
+        box-shadow: 0 0 0 1000px rgba(255,255,255,0);
+        background: rgba(255,255,255,0);
+    }
+}
+@keyframes openTop {
+    0% {
+        transform: translateY(-5px)
+        rotate(0deg);
+    }
+    50% {
+        transform: translateY(0px)
+        rotate(0deg);
+    }
+    100% {
+        transform: translateY(0px)
+        rotate(90deg);
+    }
+}
+@keyframes openMid {
+
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+@keyframes openBottom {
+    0% {
+        transform: translateY(5px)
+        rotate(0deg);
+    }
+    50% {
+        transform: translateY(0px)
+        rotate(0deg);
+    }
+    100% {
+        transform: translateY(0px)
+        rotate(90deg);
+    }
+}
+@keyframes closedTop {
+    0% {
+        transform: translateY(-5px)
+        rotate(0deg);
+    }
+    50% {
+        transform: translateY(0px)
+        rotate(0deg);
+    }
+    100% {
+        transform: translateY(0px)
+        rotate(90deg);
+    }
+}
+@keyframes closedMid {
+
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+@keyframes closedBottom {
+    0% {
+        transform: translateY(5px)
+        rotate(0deg);
+    }
+    50% {
+        transform: translateY(0px)
+        rotate(0deg);
+    }
+    100% {
+        transform: translateY(0px)
+        rotate(90deg);
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .main-header .menu-icon {
+        display: block;
+    }
+    .main-header .nav-links {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 10rem 0;
+        width: 100vw;
+        height: 100vh;
+        font-size: 1rem;
+        color: #fff;
+        background: #272727;
+        transition:
+            opacity .8s .5s,
+            clip-path 1s .5s;
+        clip-path: circle(200px at top right);
+    }
+    .main-header .menu-btn:checked ~ .nav-links {
+        opacity: 1;
+        clip-path: circle(100% at center);
+    }
+    .main-header .nav-links .nav-link {
+        opacity: 0;
+        transform: translateX(100%);
+        width: 100%;
+        text-align: center;
+    }
+    .main-header .nav-links .nav-link a{
+        display: block;
+        padding: 0.5rem 0;
+    }
+    .main-header .menu-btn:checked ~ .nav-links .nav-link {
+        opacity: 1;
+        transform: translateX(0);
+        transition:
+              opacity .4s ease-in-out,
+              transform .6s cubic-bezier(0.175,0.885,0.32,1.275);
+    }
+    .main-header .menu-btn:checked ~ .nav-links .nav-link:nth-of-type(1) {
+        transition-delay: .7s;
+    }
+    .main-header .menu-btn:checked ~ .nav-links .nav-link:nth-of-type(2) {
+        transition-delay: .8s;
+    }
+    .main-header .menu-btn:checked ~ .nav-links .nav-link:nth-of-type(3) {
+        transition-delay: .9s;
+    }
+    .main-header .menu-btn:checked ~ .nav-links .nav-link:nth-of-type(4) {
+        transition-delay: 1s;
+    }
+    .main-header .menu-btn:checked  ~ .menu-icon {
+        border-radius: 50%;
+        animation: pulse 1s;
+    }
+    .main-header .menu-btn:checked  ~ .menu-icon .menu-icon__line {
+         background: #fff;
+         animation: openMid 0.8s forwards;
+    }
+    .main-header .menu-btn:checked  ~ .menu-icon .menu-icon__line::before {
+        background: #fff;
+        animation: openTop 0.8s forwards;
+    }
+    .main-header .menu-btn:checked  ~ .menu-icon .menu-icon__line::after {
+        background: #fff;
+        animation: openBottom 0.8s forwards;
+    }
+    .main-header .menu-icon .menu-icon__line {
+        animation: closedMid 0.8s backwards;
+        animation-direction: reverse;
+    }
+    .main-header .menu-icon .menu-icon__line::before{
+        animation: closedTop 0.8s backwards;
+        animation-direction: reverse;
+    }
+    .main-header .menu-icon .menu-icon__line::after{
+        animation: closedBottom 0.8s backwards;
+        animation-direction: reverse;
+    }
+
+
+
+}
+#navi { display:block; }
+
+@media screen and (min-width: 767px) {
+    #navi  { display:none; }
+    #logo1 {display:none;}
+}
+#logo1{
+    width:120px;
+    height:120px;
+    margin: 10px 34px;
+    border-radius:60px;
+
+}
+#logo1 img{
+  height:100%;
+  border-radius: 60px;
+  border:2px solid #afc5a6;
+}
+.fuck {
+  padding: 5px;
+  font-size: 25px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 2px 2px;
+  color:#737373;
+}
+.fuck:hover{
+   text-decoration:none;
+}
+
+        {% block css %}{% endblock css %}
+    </style>
+  </head>
+  <body>
+      <header class="main-header">
+          <div class="logo">
+              <a href="#"></a>
+          </div>
+          <input type="checkbox" class="menu-btn" id="menu-btn">
+          <label for="menu-btn" class="menu-icon">
+              <span class="menu-icon__line"></span>
+          </label>
+
+          <ul class="nav-links">
+               <div id="logo1">
+
+                    <img src="/media/IMG_20191213_220058_069.jpg" style="width:100%" alt="Avatar">
+               </div>
+              <li class="nav-link">
+                  <a href="/"><span class="fa fa-home" style="margin-right:5px;"></span>  Home</a>
+              </li>
+              <li class="nav-link">
+                <a href="/home/about"><span class="fa fa-user" style="margin-right:5px;"></span>   About</a>
+              </li>
+              <li class="nav-link">
+                <a href="/blog"><span class="fa fa-edit" style=" margin-right:5px;"></span>   Blog</a>
+              </li>
+              <li class="nav-link">
+                <a href="/proj"><span class="fa fa-wrench" style=" margin-right:5px;"></span>   Projects</a>
+              </li>
+              <div class="half" id="navi" style="text-align:center;">
+                 <a href="https://www.facebook.com/Nk796/" class="fa fuck fa-facebook"></a>
+                 <a href="https://www.linkedin.com/in/nikhil-singh-2523921b4" class="fa fuck fa-linkedin"></a>
+                 <a href="https://www.instagram.com/nikhil__796/?hl=en" class="fa fuck fa-instagram"></a>
+                 <a href="https://github.com/demon-99" class="fa fuck fa-github"></a>
+               </div>
+          </ul>
+      </header>
+      {% block body %}{% endblock body %}
+      <footer style=" background-color:#26272b; font-size:15px; color:#737373; white-space:nowrap;">
+           <div class="half" style="text-align:center;">
+                 <a href="https://www.facebook.com/Nk796/" class="fa fuck fa-facebook"></a>
+                 <a href="https://www.linkedin.com/in/nikhil-singh-2523921b4" class="fa fuck fa-linkedin"></a>
+                 <a href="https://www.instagram.com/nikhil__796/?hl=en" class="fa fuck fa-instagram"></a>
+                 <a href="https://github.com/demon-99" class="fa fuck fa-github"></a>
+          </div>
+           <div class="half" style="text-align:center;">
+                   Copyright © 2020 Nikhil.
+           </div>
+
+      </footer>
+      <script src='base.js'></script>
+      <script>
+          const header = document.querySelector('.main-header');
+
+window.addEventListener('scroll',() => {
+    const scrollPos = window.scrollY;
+    if(scrollPos > 10){
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+})
+      </script>
+      {% block script %}{% endblock script %}
+  </body>

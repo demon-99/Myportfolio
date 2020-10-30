@@ -1,0 +1,347 @@
+{% extends 'home\base.html' %}
+{% block title %}
+     About
+{% endblock title %}
+{% block css %}
+   @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900&subset=latin-ext');
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    vertical-align: middle;
+
+}
+
+.blog-item img {
+  display: block;
+}
+
+.blog-item a {
+    display: flex;
+    padding: 20px;
+    overflow: hidden;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+    color: #333;
+    background-color:white;
+    opacity:0.9;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    border-radius: 6px;
+    margin-bottom: 50px;
+    text-decoration: none;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.blog-item a:hover {
+    box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.blog-item .icon {
+    width: 25%;
+    object-fit: cover;
+    margin-right: 50px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 15px 26px rgba(0, 0, 0, 0.4);
+}
+
+.blog-item .content {
+    width: 65%;
+}
+
+.blog-item .content .title {
+    font-size: 21px;
+    text-transform: capitalize;
+    color: #25aae1;
+    font-weight: 600;
+    font-family: 'Lato', sans-serif;
+}
+
+
+
+.blog-item .content .title .blog-date {
+    font-size: 12px;
+    margin-left: 20px;
+    color: #333;
+    font-family: 'Lato', sans-serif;
+}
+
+.blog-item .content .title .blog-date:before {
+    content: '/';
+    color: #2bb673;
+    font-size: 25px;
+    top: auto;
+    position: relative;
+    margin-right: 10px;
+}
+
+.blog-item .content .rounded {
+    margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.blog-item .item-arrow {
+    height: 20px;
+    width: 15%;
+    position: relative;
+    text-align: center;
+    font-size: 35px;
+    left: 0;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.blog-item a:hover > .item-arrow {
+    /*padding-left: 40px;*/
+    color: #25aae1;
+    left: 30px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.rounded {
+    width: 70px;
+    height: 5px;
+    border-radius: 6px;
+    background-image: linear-gradient(to right, #25aae1, #40e495);
+    /* background: #2bb769; */
+    margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.posts .find{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-evenly;
+  margin-bottom:20px;
+}
+.posts .find .findtext{
+  width:40%;
+  padding-top:12px;
+}
+.posts .find .findform{
+  width:40%;
+   border-bottom:2px solid black;
+   justify-content:space-evenly;
+}
+.posts .find .findform input{
+  border:0px;
+  background-color:transparent;  width:75%;
+  vertical-align:center;
+  align-self:center;
+  margin-top:12px;
+  font-size:1.5rem;
+}
+.posts .find .findform input:focus{
+  outline-width:0px;
+}
+.posts .find .findform input::placeholder{
+   color:  white;
+   font-size:1.5rem;
+}
+@media screen and (max-width: 768px){
+     .posts .find {
+         flex-direction:column;
+      }
+      .posts .find .findtext{
+         width:80%;
+         text-align:center;
+         margin:auto;
+      }
+      .posts .find .findform{
+          width:80%;
+          margin:auto;
+       }
+    .blog-item .content {
+        width: 100%;
+        margin-top: 35px;
+    }
+
+    .blog-item .content .title {
+        font-size: 18px;
+    }
+
+    .blog-item .item-arrow {
+        margin: auto;
+    }
+
+    .blog-item .icon {
+        width: 100%;
+    }
+
+    .blog-item .icon img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .blog-item {
+        width: 80%;
+        margin: auto;
+    }
+
+    .blog-item a {
+        display: block;
+        padding: 30px;
+    }
+
+}
+
+.aboutmain #logo{
+    padding:5px;
+    justify-self: center;
+    display:inline-block;
+    width:250px;
+    margin: 0px 10px;
+    align-self: center;
+}
+.aboutmain #logo img{
+  margin: 3px 6px;
+  border:2px dotted #272e24;
+  border-radius: 50%;
+
+}
+.aboutmain{
+  display:flex;
+  flex-wrap: no-wrap;
+  flex-direction: row;
+  padding:40px;
+  justify-content: space-around;
+}
+.aboutmain div{
+  width:60%;
+}
+.about p{
+    color: #666665;
+    font-size: 18px;
+    line-height: 36px;
+    font-family: "Open Sans", sans-serif;
+    display: block;
+}
+.aboutmain div p{
+    color: #666665;
+    font-size: 18px;
+    line-height: 36px;
+    font-family: "Open Sans", sans-serif;
+    display: block;
+}
+@media only screen and (max-width : 600px){
+  .aboutmain{
+    padding:30px;
+    flex-direction: column;
+    justify-items: center;
+  }
+
+  .aboutmain div{
+    width:85%;
+  }
+  .aboutmain div p{
+    color: #666665;
+    font-size: 15px;
+    line-height: 24px;
+    font-family: "Open Sans", sans-serif;
+    display: block;
+}
+}
+.about{
+   padding-top:5rem;
+}
+.cta-section {
+    text-align: center;
+    padding-top: 3em;
+    padding-bottom: 4em;
+    font-family: Georgia,times new roman,Times,serif;
+    color: #000;
+}
+.cta-button {
+    border-radius: 5px;
+    color: #000;
+    border: 1px solid #ab2537fa;
+    padding: 1em 1.5em;
+    display: inline-block;
+    font-size: 1em;
+    font-style: italic;
+    margin: 0 1em;
+    margin-bottom: 1em;
+    min-width: 10em;
+    transition: all .25s ease;
+}
+.cta-button:hover{
+    background-color:red;
+    color:black;
+    text-decoration:none;
+}
+.projects
+{
+   background-color:#584b4b;
+   color:#737373;
+}
+.projects h1{
+    padding:30px 40px;
+    text-shadow:1px 1px black;
+}
+{% endblock css %}
+{% block body %}
+    <div id="about" class="about" style="width:100vw; height:auto; background-color:white;">
+      <h1 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; color: rgb(70, 47, 47); width:100vw;">About me</h1>
+      <center><hr style=" width: 20%; border: 2px solid rgb(163, 55, 55); margin:0px;"></center>
+      <div class="aboutmain" >
+        <div>
+            <p> Hey! I am Nikhil. I am a pre-final year undergraduate in Computer Science and Engineering Department at BIT Patna. I will be completing my degree  in May 2022. I enjoy spending time over tough problems, especially in the field of data structure and algorithms. As a result, I have been quite active in doing Web development as well as in the Competitive Programming world. The former requires designing while the latter, fast thinking, and I find myself learning the best of both worlds.
+            </p>
+        </div>
+          <div id="logo">
+           {% load static %}
+           <img src="{%static 'home/74170623_2452519708194290_4534666362773045248_o (1).jpg' %}" style="width:100%" alt="Avatar">
+          </div>
+      </div>
+      <div class="cta-section border">
+        <div class="inner-container">
+         <h1>Interested in doing a project together?</h1>
+         <a href="mailto:nikhilk3023@gmail.com" class="cta-button">Email Me <span class="arrow-right">→</span></a>
+        </div>
+      </div>
+    </div>
+     <div class="projects">
+         <h1>
+             My work...
+         </h1>
+         <section class="posts" id="posts" >
+    <div class="postscon" style=" padding:20px;">
+      {% for post in allPosts  %}
+<div class="blog-item">
+    <a href="{{post.author}}">
+        <div class="icon">
+            <img src="/media/{{post.image}}" alt="">
+        </div>
+        <div class="content">
+            <div class="title">{{post.title}} </div>
+            <div class="rounded"></div>
+
+            <p>
+                {{post.content| truncatechars:200}}
+            </p>
+        </div>
+
+        <div class="item-arrow">
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </div>
+    </a>
+</div>
+        {% endfor %}
+    </div>
+</section>
+     </div>
+{% endblock body %}

@@ -1,0 +1,403 @@
+{% extends 'home/base.html' %}
+{% block title %}Home{% endblock title %}
+{% block css %}
+.container {
+  height: 100vh;
+  width:100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.container p {
+  font-size: 3rem;
+  padding: 0.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  overflow: hidden;
+
+}
+.container p span.typed-text {
+  font-weight: normal;
+  color: #dd7732;
+}
+.container p span.cursor {
+  display: inline-block;
+  background-color: #ccc;
+  margin-left: 0.1rem;
+  width: 3px;
+  animation: blink 1s infinite;
+}
+.container p span.cursor.typing {
+  animation: none;
+}
+@keyframes blink {
+  0%  { background-color: #ccc; }
+  49% { background-color: #ccc; }
+  50% { background-color: transparent; }
+  99% { background-color: transparent; }
+  100%  { background-color: #ccc; }
+}
+
+         #home{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+}
+         #home::before{
+            content: "";
+            background:url('/media/1ea306d1-910e-401f-b2c9-ea75d16c85ef.jpg')  no-repeat center center/cover;
+            position: absolute;
+            background-attachment: fixed;
+            top:0px;
+            right:0px;
+            width: 100vw;
+            height: 200%;
+            z-index: -1;
+            opacity: 0.8;
+            margin-bottom: 15px;
+
+         }
+        .about{
+          margin:0px;
+
+          overflow: hidden;
+
+          padding-top: 30px;
+          box-sizing: border-box;
+        }
+.aboutmain #logo{
+    padding:5px;
+    justify-self: center;
+    display:inline-block;
+    width:250px;
+    margin: 0px 10px;
+    align-self: center;
+}
+.aboutmain #logo img{
+  margin: 3px 6px;
+  border:2px dotted #272e24;
+  border-radius: 125px;
+
+}
+.aboutmain{
+  display:flex;
+  flex-wrap: no-wrap;
+  flex-direction: row;
+  padding:40px;
+  justify-content: space-around;
+}
+.aboutmain div{
+  width:60%;
+}
+.about p{
+    color: #666665;
+    font-size: 18px;
+    line-height: 36px;
+    font-family: "Open Sans", sans-serif;
+    display: block;
+}
+.aboutmain div p{
+    color: #666665;
+    font-size: 18px;
+    line-height: 36px;
+    font-family: "Open Sans", sans-serif;
+    display: block;
+}
+@media only screen and (max-width : 600px){
+  .aboutmain{
+    padding:30px;
+    flex-direction: column;
+    justify-items: center;
+  }
+
+  .aboutmain div{
+    width:85%;
+  }
+  .aboutmain div p{
+    color: #666665;
+    font-size: 15px;
+    line-height: 24px;
+    font-family: "Open Sans", sans-serif;
+    display: block;
+}
+}
+
+.cta-section {
+    text-align: center;
+    padding-top: 3em;
+    padding-bottom: 4em;
+    font-family: Georgia,times new roman,Times,serif;
+    color: #000;
+}
+.cta-button {
+    border-radius: 5px;
+    color: #000;
+    border: 1px solid #ab2537fa;
+    padding: 1em 1.5em;
+    display: inline-block;
+    font-size: 1em;
+    font-style: italic;
+    margin: 0 1em;
+    margin-bottom: 1em;
+    min-width: 10em;
+    transition: all .25s ease;
+}
+.cta-button:hover{
+    background-color:red;
+    color:black;
+    text-decoration:none;
+}
+
+.progress{
+    height: 40px;
+    background: #fff;
+    border-radius: 100px;
+    box-shadow: none;
+    margin-top: 40px;
+    position: relative;
+}
+.progress .progress-title{
+    width: 20%;
+    height: 100%;
+    background: #fff;
+    border-radius: 100px 0 0 100px;
+    float: left;
+    margin: 0;
+    font-size: 15px;
+    color: #000;
+    line-height: 40px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+}
+.progress .progress-title:after{
+    content: "";
+    border-left: 10px solid #fff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    z-index: 1;
+}
+.progress .progress-bar{
+    width: 80%;
+    background: #fff;
+    box-shadow: none;
+    position: relative;
+}
+.progress .progress-value{
+    height: 100%;
+    border-radius: 0 100px 100px 0;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 40px;
+    color: #fff;
+    animation: animate-positive 2s;
+}
+.progress.red .progress-value{ background: #ec4251; }
+.progress.green .progress-value{ background: #73cd21; }
+.progress.blue .progress-value{ background: #2e9ce0; }
+.progress.yellow .progress-value{ background: #eea921; }
+@keyframes animate-positive{
+    0%{ width: 0; }
+}
+@media only screen and (max-width: 480px){
+    .progress .progress-title{
+        font-size: 12px;
+        letter-spacing: 0;
+    }
+}
+.contacts{
+   height:100vh;
+   width:100vw;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   background-color:cyan;
+}
+.contacts .sources a .sm{
+   padding:0.5rem 3.5rem;
+   margin:1rem;
+   border:1px solid black;
+   border-radius:25px;
+   text-align:center;
+   font-weight:bold;
+   color:black;
+}
+.contacts .sources a:hover{
+
+  text-decoration:none;
+}
+.contacts .sources a .sm:hover{
+  background-color:black;
+  color:white;
+  text-decoration:none;
+   box-shadow:1px 1px blue;
+}
+.contacts .sources h2 {
+    font-weight:bold;
+    color:black;
+    white-space:no-wrap;
+}
+
+{% endblock css %}
+{% block body %}
+
+    <div id="home">
+      <div class="container" style="height:auto;">
+        <p>I am <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+      </div>
+       <a href="#about" type="button" class="btn btn-outline-dark" style="border-radius:20px" >Read more..</a>
+    </div>
+    <div id="about" class="about" style="width:100vw; height:auto; background-color:white;">
+      <h1 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; color: rgb(70, 47, 47); width:100vw;">About me</h1>
+      <center><hr style=" width: 20%; border: 2px solid rgb(163, 55, 55); margin:0px;"></center>
+      <div class="aboutmain" >
+        <div>
+            <p> Hey! I am Nikhil. I am a pre-final year undergraduate in Computer Science and Engineering Department at BIT Patna. I will be completing my degree  in May 2022. I enjoy spending time over tough problems, especially in the field of data structures and algorithms. As a result, I have been quite active in doing Web development as well as in the Competitive Programming world. The former requires designing while the latter, fast thinking, and I find myself learning the best of both worlds.
+            </p>
+        </div>
+          <div id="logo">
+           {% load static %}
+           <img src="{%static 'home/74170623_2452519708194290_4534666362773045248_o (1).jpg' %}" style="width:100%" alt="Avatar">
+          </div>
+      </div>
+      <div class="cta-section border">
+        <div class="inner-container">
+         <h1>Interested in doing a project together?</h1>
+         <a href="mailto:nikhilk3023@gmail.com" class="cta-button">Email Me <span class="arrow-right">→</span></a>
+        </div>
+      </div>
+    </div>
+      <div id="row" class="row" style="height:auto; width:100vw;  justify-content: center; margin:0px; background-color: darkgrey; padding-top: 20px; padding-bottom: 50px;">
+        <h1 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; color: rgb(70, 47, 47); width:100vw;">Language skills</h1>
+
+        <div class="col-md-6" >
+              <div class="progress red">
+                  <h3 class="progress-title">C++</h3>
+                  <div class="progress-bar">
+                      <div class="progress-value" style="width: 80%;">80%</div>
+                  </div>
+              </div>
+
+              <div class="progress green">
+                  <h3 class="progress-title">Python</h3>
+                  <div class="progress-bar">
+                      <div class="progress-value" style="width: 65%;">65%</div>
+                  </div>
+              </div>
+              <div class="progress blue">
+                <h3 class="progress-title">Java</h3>
+                <div class="progress-bar">
+                    <div class="progress-value" style="width: 60%;">60%</div>
+                </div>
+            </div>
+            <div class="progress red">
+              <h3 class="progress-title">Javascript</h3>
+              <div class="progress-bar">
+                  <div class="progress-value" style="width: 65%;">65%</div>
+              </div>
+            </div>
+            <div class="progress yellow">
+              <h3 class="progress-title">HTML & CSS</h3>
+              <div class="progress-bar">
+                  <div class="progress-value" style="width: 70%;">70%</div>
+              </div>
+            </div>
+
+          </div>
+          <h1 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; color: rgb(70, 47, 47); width:100vw; margin-top:50px;">Frameworks proficiency</h1>
+          <div class="col-md-6" >
+
+            <div class="progress blue">
+              <h3 class="progress-title">Django</h3>
+              <div class="progress-bar">
+                  <div class="progress-value" style="width: 70%;">70%</div>
+              </div>
+          </div>
+          <div class="progress red">
+            <h3 class="progress-title">Flask</h3>
+            <div class="progress-bar">
+                <div class="progress-value" style="width: 40%;">40%</div>
+            </div>
+          </div>
+          <div class="progress yellow">
+            <h3 class="progress-title">Node js</h3>
+            <div class="progress-bar">
+                <div class="progress-value" style="width: 50%;">50%</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="contacts">
+          <div class="sources">
+               <a href="https://t.me/dmOn_99"><div class="sm"><span class="fa fa-telegram"></span> Ping me on telegram</div></a>
+               <a href="https://www.instagram.com/nikhil__796/?hl=en"><div class="sm"><span class="fa fa-instagram"></span> Follow me on instagram</div></a>
+               <a href="mailto:nikhilk3023@gmail.com"><div class="sm"><span class="fa fa-envelope-o"></span>  send mail</div></a>
+              <hr style="background-color:black;">
+              <h2>You can find me here</h2>
+               <div class="half" style="text-align:center;">
+                 <a href="https://www.facebook.com/Nk796/" class="fa fuck fa-facebook"></a>
+                 <a href="https://www.linkedin.com/in/nikhil-singh-2523921b4" class="fa fuck fa-linkedin"></a>
+                 <a href="https://www.instagram.com/nikhil__796/?hl=en" class="fa fuck fa-instagram"></a>
+                 <a href="https://github.com/demon-99" class="fa fuck fa-github"></a>
+                </div>
+          </div>
+      </div>
+{% endblock body %}
+{% block script %}
+<script>
+     const typedTextSpan = document.querySelector(".typed-text");
+const cursorSpan = document.querySelector(".cursor");
+
+const textArray = ["Nikhil!", "a passionate coder!", "an enthusiatic techie!", "a creative web designer!"];
+const typingDelay = 100;
+const erasingDelay = 100;
+const newTextDelay = 500; // Delay between current and next text
+let textArrayIndex = 0;
+let charIndex = 0;
+
+function type() {
+  if (charIndex < textArray[textArrayIndex].length) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingDelay);
+  }
+  else {
+    cursorSpan.classList.remove("typing");
+    setTimeout(erase, newTextDelay);
+  }
+}
+
+function erase() {
+    if (charIndex > 0) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+    charIndex--;
+    setTimeout(erase, erasingDelay);
+  }
+  else {
+    cursorSpan.classList.remove("typing");
+    textArrayIndex++;
+    if(textArrayIndex>=textArray.length) textArrayIndex=0;
+    setTimeout(type, typingDelay + 1100);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
+  if(textArray.length) setTimeout(type, newTextDelay + 250);
+});
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock script %}
