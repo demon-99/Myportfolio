@@ -7,8 +7,12 @@ import requests
 # Create your views here.
 def index(request):
     hostname = socket.gethostname()
-    ip_address = requests.get('https://api.ipify.org').text
-    context = {'ip': ip_address, 'device': hostname}
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    context = {'ip': ip, 'device': hostname}
     return render(request,'home/home.html', context)
 
 def about(request):
