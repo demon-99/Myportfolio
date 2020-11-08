@@ -48,6 +48,15 @@
     height: 100vh;
     align-items: center;
 }
+          #row::before{
+           content: "";
+           background:url('https://cdn.pixabay.com/photo/2017/02/22/16/13/drums-2089829_960_720.jpg')  no-repeat center center/cover;
+           position:absolute;
+           width: 100vw;
+           height: 200%;
+           z-index: -1;
+           opacity: 1;
+         }
          #home::before{
             content: "";
             background:url(/media/1ea306d1-910e-401f-b2c9-ea75d16c85ef.jpg)  no-repeat center center/cover;
@@ -64,9 +73,7 @@
          }
         .about{
           margin:0px;
-
           overflow: hidden;
-
           padding-top: 30px;
           box-sizing: border-box;
         }
@@ -254,7 +261,7 @@
       <div class="container" style="height:auto;">
         <p>I am <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
       </div>
-       <a href="#about" type="button" class="btn btn-outline-dark" style="border-radius:20px" >Read more..</a>
+       <a href="#about" type="button" class="btn btn-outline-dark" style="border-radius:20px;" >Read more..</a>
     </div>
     <div id="about" class="about" style="width:100vw; height:auto; background-color:white;">
       <h1 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; color: rgb(70, 47, 47); width:100vw;">About me</h1>
@@ -276,7 +283,7 @@
         </div>
       </div>
     </div>
-      <div id="row" class="row" style="height:auto; width:100vw;  justify-content: center; margin:0px; background-color: darkgrey; padding-top: 20px; padding-bottom: 50px;">
+      <div id="row" class="row" style="height:auto; width:100vw;  justify-content: center; margin:0px;  padding-top: 1px; background-color: transparent; padding-bottom: 50px;">
         <h1 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; color: rgb(70, 47, 47); width:100vw;">Language skills</h1>
 
         <div class="col-md-6" >
