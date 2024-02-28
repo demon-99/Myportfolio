@@ -9,7 +9,6 @@ class Post(models.Model):
     slug=models.CharField(max_length=130)
     timeStamp=models.DateTimeField(blank=True)
     content=models.TextField()
-    image = models.ImageField(upload_to='blog/images', default="")
 
     def __str__(self):
         return self.title + " by " + self.author
